@@ -1,4 +1,4 @@
-from src.neurord_sbml.neurord_sbml import validateSBML
+from src.neurord_sbml.validateSBML import validateSBML
 
 
 def test_basic_sbml():

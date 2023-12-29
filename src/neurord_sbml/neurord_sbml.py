@@ -31,7 +31,7 @@ def main(args):
 
         fnum = 0
 
-        validator.validate(args.output_file)
+        validator.validate_file(args.output_file)
         numinvalid = validator.numinvalid
 
         print(

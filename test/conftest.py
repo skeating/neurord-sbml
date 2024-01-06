@@ -4,8 +4,14 @@ from src.neurord_sbml.convert import convert
 
 
 class Arguments:
+    """
+    Class to mimic the command line arguments.
+    """
     def __init__(self):
         self.reactions_file = ""
+        self.initial_conditions_file = ""
+        self.display_only = True
+        self.validate = False
 
 
 @pytest.fixture(scope="session")
@@ -20,7 +26,6 @@ def model():
     arguments.initial_conditions_file = './resources/IC.xml'
     arguments.display_only = True
     arguments.validate = False
-    arguments.testing = True
     converter = convert(arguments)
     model = converter.do_conversion()
     return model

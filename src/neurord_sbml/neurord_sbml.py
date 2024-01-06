@@ -1,13 +1,8 @@
 import argparse
 import sys
-from xml.etree import ElementTree as ET
 
-import libsbml
-import simplesbml
 from src.neurord_sbml.validateSBML import validateSBML
 from src.neurord_sbml.convert import convert
-
-micron_cube_to_litre = 1e-15
 
 
 def main(args):
@@ -46,8 +41,6 @@ def main(args):
 
         if numinvalid > 0:
             sys.exit(1)
-    if args.testing:
-        return model
 
 
 def get_parser():
@@ -95,15 +88,6 @@ def get_parser():
     )
 
     return parser
-
-
-def running_testing():
-    args.reactions_file = './resources/Reactions.xml'
-    args.initial_conditions_file = './resources/IC.xml'
-    args.display_only = True
-    args.validate = False
-    args.testing = True
-    return main(args)
 
 
 if __name__ == "__main__":

@@ -65,7 +65,7 @@ def test_parameter1(model):
     assert (parameter.id == "kon_1")
     assert (parameter.value == 0.5e-4)
     assert not parameter.constant
-    assert (parameter.units == "per_nM_per_ms")
+    assert (parameter.units == "l_per_nM_per_ms")
 
 
 def test_parameter2(model):
@@ -89,5 +89,5 @@ def test_parameter4(model):
     assert (parameter.id == "koff_2")
     assert (parameter.value == 0.0)
     assert not parameter.constant
-    assert (parameter.units == "per_nM_per_ms")
+    assert (parameter.units == "l_per_nM_per_ms")
     

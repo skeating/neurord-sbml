@@ -36,8 +36,11 @@ def main(args):
             "Validated %d files, %d valid files, %d invalid files"
             % (fnum, fnum - numinvalid, numinvalid)
         )
+
         if not enableUnitCCheck:
             print("(Unit consistency checks skipped)")
+
+        validator.print_results()
 
         if numinvalid > 0:
             sys.exit(1)

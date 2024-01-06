@@ -149,6 +149,9 @@ class convert:
         compartment.size = size
 
     def add_unit_definitions(self):
+        """
+        Function to add the required unit definitions to the model.
+        """
         ## ms
         ms = self.model.model.createUnitDefinition()
         ms.setId("ms")
@@ -176,16 +179,22 @@ class convert:
         unit.setExponent(-1)
         unit.setMultiplier(1)
 
-        ## nM^{-1} ms^{-1}
-        per_nM_per_ms = self.model.model.createUnitDefinition()
-        per_nM_per_ms.setId("per_nM_per_ms")
-        unit = per_nM_per_ms.createUnit()
+        ## l nM^{-1} ms^{-1}
+        l_per_nM_per_ms = self.model.model.createUnitDefinition()
+        l_per_nM_per_ms.setId("l_per_nM_per_ms")
+        unit = l_per_nM_per_ms.createUnit()
+        unit.setKind(libsbml.UNIT_KIND_LITRE)
+        unit.setScale(0)
+        unit.setExponent(1)
+        unit.setMultiplier(1)
+
+        unit = l_per_nM_per_ms.createUnit()
         unit.setKind(libsbml.UNIT_KIND_MOLE)
         unit.setScale(-9)
         unit.setExponent(-1)
         unit.setMultiplier(1)
 
-        unit = per_nM_per_ms.createUnit()
+        unit = l_per_nM_per_ms.createUnit()
         unit.setKind(libsbml.UNIT_KIND_SECOND)
         unit.setScale(-3)
         unit.setExponent(-1)
@@ -238,7 +247,7 @@ class convert:
 
         self.units = {
             0: per_ms,
-            1: per_nM_per_ms,
+            1: l_per_nM_per_ms,
             2: per_nM2_per_ms,
             3: per_nM3_per_ms,
             4: per_nM4_per_ms,
